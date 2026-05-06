@@ -1,5 +1,6 @@
 package be_study.var;
 
+@SuppressWarnings("unused")
 public class Variable01 {
 
 	public static void main(String[] args) {
