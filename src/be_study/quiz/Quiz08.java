@@ -30,44 +30,43 @@ public class Quiz08 {
 		//출생년도를 입력하세요 : 1998
 		//주민번호 뒷자리 첫번째 숫자를 입력하세요 : 1
 		//결과 : 29살 남자입니다.
-		
-		
-		
+
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("출생년도를 입력하세요 : ");
 		int year = scanner.nextInt();
-		
+
 		System.out.print("주민번호 뒷자리 첫번째 숫자를 입력하세요 : ");
 		int num = scanner.nextInt();
-		
+
 		//개별조건
-		
-		if( year < 2000) {     // ~1999   1 2     
-			
+
+		if (year < 2000) { // ~1999   1 2     
+
 			// 2000년생 -> 27살
 			// 2026년과의 차이 2026 - 2000 = 26 + 1 = 27
 			// 2026년과의 차이 2026 - 1996 = 30 + 1 = 31
 			// 기준해(년도) - 태어난년도 + 1 -> 한국나이
-			
+
 			int age = 2026 - year + 1; //한국나이
-			
-			if(num == 1) {
-				System.out.println("결과 : " + age  +  "살 남자입니다.");
+
+			if (num == 1) {
+				System.out.println("결과 : " + age + "살 남자입니다.");
 			} else if (num == 2) {
 				System.out.println("결과 : " + (2026 - year + 1) + "살 여자입니다.");
-			} else {  //잘못된 케이스
+			} else { //잘못된 케이스
 				System.out.println("잘못된 입력입니다.");
 			}
-			
-		} 
-		
-		if( year >= 2000) {
-			
-			if(num == 3) {
-				System.out.println("결과 : " + (2026 - year + 1)  +  "살 남자입니다.");
+
+		}
+
+		if (year >= 2000) {
+
+			if (num == 3) {
+				System.out.println("결과 : " + (2026 - year + 1) + "살 남자입니다.");
 			} else if (num == 4) {
 				System.out.println("결과 : " + (2026 - year + 1) + "살 여자입니다.");
-			} else {  //잘못된 케이스
+			} else { //잘못된 케이스
 				System.out.println("잘못된 입력입니다.");
 			}
 		}
@@ -75,56 +74,51 @@ public class Quiz08 {
 			
 		}
 		*/
-		
+
 		// >= 2000
-		
+
 		//개별조건을 엮어서 더 상세히 비교
-		
+
 		int age = 2026 - year + 1; //한국나이
-		
-		if( year < 2000 && num == 1 ) {
+
+		if (year < 2000 && num == 1) {
 			System.out.println("결과 : " + age + "살 남자입니다.");
-		} else if ( year < 2000 && num == 2 ) {
+		} else if (year < 2000 && num == 2) {
 			System.out.println("결과 : " + age + "살 여자입니다.");
-		} else if ( year >= 2000 && num == 3 ) {
+		} else if (year >= 2000 && num == 3) {
 			System.out.println("결과 : " + age + "살 남자입니다.");
-		} else if ( year >= 2000 && num == 4 ) {
+		} else if (year >= 2000 && num == 4) {
 			System.out.println("결과 : " + age + "살 여자입니다.");
 		} else {
 			System.out.println("잘못된 입력입니다.");
 		}
-		
-		
+
 		//정상범위를 먼저 체크
-		if(   ( year < 2000 && (num == 1 || num == 2) )  
-					||                                                     
-			  ( year >= 2000 && (num == 3 || num == 4) )  
-		  ) {
-			
+		if ((year < 2000 && (num == 1 || num == 2)) || (year >= 2000 && (num == 3 || num == 4))) {
+
 			//입력은 정상이다!
 			age = 2026 - year + 1;
-			
-			if(num == 1 || num == 3) {
+
+			if (num == 1 || num == 3) {
 				System.out.println("결과 : " + age + "살 남자입니다.");
 			} else {
 				System.out.println("결과 : " + age + "살 여자입니다.");
 			}
-			
-			if(num ==1) {
-				
-			} else if( num==2) {
-				
-			} else if (num==3) {
-				
+
+			if (num == 1) {
+
+			} else if (num == 2) {
+
+			} else if (num == 3) {
+
 			} else {
-				
+
 			}
-			
+
 		} else {
 			System.out.println("잘못된 입력입니다.");
 		}
-		
-		
+
 	}
 
 }
