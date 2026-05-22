@@ -11,17 +11,17 @@ public class RandomAdv {
 		boolean isOnly = true;
 		for (int i = 0; i < arr.length; i++) {
 			int num;
-			while (condition) {
-				num = random.nextInt(1, 46);
-				isOnly = true;
-				for (int j = 0; j < i; j++) {
-					if (num == arr[j]) {
-						isOnly = false;
-					}
-				}
-			}
-			arr[i] = num;
-			System.out.println(num);
+			//			while (condition) {
+			//				num = random.nextInt(1, 46);
+			//				isOnly = true;
+			//				for (int j = 0; j < i; j++) {
+			//					if (num == arr[j]) {
+			//						isOnly = false;
+			//					}
+			//				}
+			//			}
+			//			arr[i] = num;
+			//			System.out.println(num);
 		}
 	}
 
