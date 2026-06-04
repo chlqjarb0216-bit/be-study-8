@@ -29,6 +29,26 @@ public class FoodTruck {
 		}
 	}
 
+	void addStocks(int[] stocks) {
+		if (this.menuList.size() != stocks.length)
+			return;
+		for (int i = 0; i < menuList.size(); i++) {
+			stocks[i] += menuList.get(i).getStock();
+		}
+		setStocks(stocks);
+	}
+
+	private Food scanOrder() {
+		do {
+			System.out.print("메뉴를 선택해주세요: ");
+			int menuNum = s.nextInt();
+			if (menuNum > 0 && menuNum <= this.menuList.size()) {
+				return this.menuList.get(menuNum - 1);
+			}
+			System.out.println("잘못된 메뉴입니다. 다시 입력해주세요.");
+		} while (true);
+	}
+
 	public void main() {
 		boolean isEnd = false;
 		do {
@@ -73,16 +93,7 @@ public class FoodTruck {
 
 	void order() {
 		showMenu();
-		Food m;
-		do {
-			System.out.print("주문하실 메뉴를 선택해주세요: ");
-			int menuNum = s.nextInt();
-			if (menuNum > 0 && menuNum <= this.menuList.size()) {
-				m = this.menuList.get(menuNum - 1);
-				break;
-			}
-			System.out.println("없는 메뉴입니다. 다시 입력해주세요.");
-		} while (true);
+		Food m = scanOrder();
 
 		int orderCnt;
 		do {
@@ -125,29 +136,22 @@ public class FoodTruck {
 		}
 	}
 
-	void addStock() {
-		showMenu();
-		Food m;
-		do {
-			System.out.print("재고를 추가할 메뉴를 선택해주세요: ");
-			int menuNum = s.nextInt();
-			if (menuNum > 0 && menuNum <= this.menuList.size()) {
-				m = this.menuList.get(menuNum - 1);
-				break;
-			}
-			System.out.println("없는 메뉴입니다. 다시 입력해주세요.");
-		} while (true);
-
-		int addCnt;
-		do {
+	private int scanCnt() {
+		while (true) {
 			System.out.print("입고 수량을 입력해주세요: ");
 			int cnt = s.nextInt();
 			if (cnt >= 0) {
-				addCnt = cnt;
-				break;
+				return cnt;
 			}
 			System.out.println("잘못된 수량입니다. 다시 입력해주세요.");
-		} while (true);
+		}
+	}
+
+	void addStock() {
+		showMenu();
+		Food m = scanOrder();
+
+		int addCnt = scanCnt();
 
 		System.out.printf("%s 재고를 %d개 추가합니다. %d -> ", m.name, addCnt, m.getStock());
 		m.setStock(m.getStock() + addCnt);
@@ -161,7 +165,7 @@ public class FoodTruck {
 		int[] adds = new int[this.menuList.size()];
 		for (int i = 0; i < adds.length; i++)
 			adds[i] = s.nextInt();
-		setStocks(adds);
+		addStocks(adds);
 		showMenu();
 		System.out.println("입고를 완료했습니다.");
 	}
@@ -182,16 +186,7 @@ public class FoodTruck {
 
 		Food m = new Food(name, price);
 
-		int addCnt;
-		do {
-			System.out.print("입고할 수량을 입력해주세요: ");
-			int cnt = s.nextInt();
-			if (cnt >= 0) {
-				addCnt = cnt;
-				break;
-			}
-			System.out.println("잘못된 수량입니다. 다시 입력해주세요.");
-		} while (true);
+		int addCnt = scanCnt();
 
 		m.setStock(addCnt);
 		this.menuList.add(m);
