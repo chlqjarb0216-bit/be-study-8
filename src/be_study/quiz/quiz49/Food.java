@@ -20,4 +20,12 @@ public class Food {
 		this.stock = stock;
 	}
 
+	public String toString() {
+		String s1 = "%s	%d원	".formatted(this.name, this.price);
+		String s2 = "(품절)";
+		if (this.stock > 0)
+			s2 = "(남은수량 %d개)".formatted(this.stock);
+		return s1 + s2;
+	}
+
 }

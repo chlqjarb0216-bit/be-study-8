@@ -29,7 +29,7 @@ public class FoodTruck {
 		}
 	}
 
-	void main() {
+	public void main() {
 		boolean isEnd = false;
 		do {
 			System.out.println();
@@ -66,12 +66,7 @@ public class FoodTruck {
 		System.out.println("======== 메뉴 ========");
 		for (int i = 0; i < this.menuList.size(); i++) {
 			Food m = this.menuList.get(i);
-			System.out.printf("%d: %s	%d원	", i + 1, m.name, m.price);
-			if (m.getStock() > 0) {
-				System.out.printf("(남은수량 %d개)\n", m.getStock());
-			} else {
-				System.out.println("(품절)");
-			}
+			System.out.printf("%d: %s\n", i + 1, m);
 		}
 		System.out.println("=====================");
 	}
