@@ -1,0 +1,10 @@
+if(obj!=null){
+    List<UserDTO> list = getList(obj.getInfo().getName(), obj.getEmail());
+}
+
+obj.getInfo()의 반환값이 null일 가능성이 존재한다.
+이를 해결하기 위해 obj.getInfo()의 null check가 필요하다.
+
+if(obj!=null && obj.getInfo()!=null){
+    List<UserDTO> list = getList(obj.getInfo().getName(), obj.getEmail());
+}
