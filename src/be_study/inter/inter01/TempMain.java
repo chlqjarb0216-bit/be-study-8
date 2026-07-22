@@ -2,6 +2,7 @@ package be_study.inter.inter01;
 
 public class TempMain {
 
+	@SuppressWarnings({ "unused", "static-access" })
 	public static void main(String[] args) {
 
 		//인터페이스는 자체적인 객체 생성 불가

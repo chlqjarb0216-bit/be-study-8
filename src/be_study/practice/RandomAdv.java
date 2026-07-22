@@ -3,6 +3,7 @@ package be_study.practice;
 import java.util.Random;
 
 public class RandomAdv {
+	@SuppressWarnings("unused")
 	//	1) 1~45 사이의 랜덤 숫자 6개를 생성하시오. (중복 불가)
 	void random6() {
 		Random random = new Random();

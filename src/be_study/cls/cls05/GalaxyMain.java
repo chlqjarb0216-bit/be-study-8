@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class GalaxyMain {
 
+	@SuppressWarnings({ "static-access", "unused", "resource" })
 	public static void main(String[] args) {
 
 		//		static 은 클래스명.변수명 접근 바로 가능
