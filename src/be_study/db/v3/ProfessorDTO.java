@@ -1,7 +1,5 @@
 package be_study.db.v3;
 
-import java.time.LocalDateTime;
-
 // DTO : Data Transfer Object	포장박스역할
 public class ProfessorDTO {
 
@@ -12,8 +10,8 @@ public class ProfessorDTO {
 	int pay;
 
 	//	java.sql.Date hiredate;
-	LocalDateTime hiredate; //날짜
-	//	String hiredate; //날짜를 문자형으로
+	//	LocalDateTime hiredate; //날짜
+	String hiredate; //날짜를 문자형으로
 
 	int bonus;
 	int deptno;
@@ -60,11 +58,11 @@ public class ProfessorDTO {
 		this.pay = pay;
 	}
 
-	public LocalDateTime getHiredate() {
+	public String getHiredate() {
 		return hiredate;
 	}
 
-	public void setHiredate(LocalDateTime hiredate) {
+	public void setHiredate(String hiredate) {
 		this.hiredate = hiredate;
 	}
 
